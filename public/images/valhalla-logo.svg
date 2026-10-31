@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
+  <defs>
+    <radialGradient id="valhallaBlood" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#75121B" />
+      <stop offset="70%" stop-color="#5B0E14" />
+      <stop offset="100%" stop-color="#2B0709" />
+    </radialGradient>
+    <linearGradient id="valhallaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8CFA0" />
+      <stop offset="50%" stop-color="#C8A46E" />
+      <stop offset="100%" stop-color="#8F6D39" />
+    </linearGradient>
+  </defs>
+  <!-- Outer Blood Medallion -->
+  <circle cx="120" cy="120" r="112" fill="url(#valhallaBlood)" stroke="url(#valhallaGold)" stroke-width="2.5" />
+  <circle cx="120" cy="120" r="103" stroke="#C8A46E" stroke-opacity="0.45" stroke-width="1" stroke-dasharray="3 3" />
+  <!-- Cardinal Diamonds -->
+  <polygon points="120,11 124,16 120,21 116,16" fill="#E8CFA0" />
+  <polygon points="120,219 124,224 120,229 116,224" fill="#C8A46E" />
+  <polygon points="11,120 16,116 21,120 16,124" fill="#C8A46E" />
+  <polygon points="219,120 224,116 229,120 224,124" fill="#C8A46E" />
+
+  <!-- Viking Horned Helmet Crest (Placeholder for official client SVG) -->
+  <!-- Left Horn -->
+  <path d="M74 102 C44 92, 30 62, 46 38 C52 58, 66 74, 86 82" stroke="url(#valhallaGold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#2B0709" />
+  <!-- Right Horn -->
+  <path d="M166 102 C196 92, 210 62, 194 38 C188 58, 174 74, 154 82" stroke="url(#valhallaGold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#2B0709" />
+  <!-- Helmet Dome -->
+  <path d="M72 115 C72 78, 94 60, 120 60 C146 60, 168 78, 168 115 Z" fill="#170607" stroke="url(#valhallaGold)" stroke-width="2.5" />
+  <!-- Brow Band & Nasal Guard -->
+  <path d="M68 114 H172 V124 H127 L124 162 L120 168 L116 162 L113 124 H68 Z" fill="url(#valhallaGold)" />
+  <!-- Cheek Guards & Beard Silhouette -->
+  <path d="M75 126 L84 168 L104 156 L98 126" fill="#170607" stroke="url(#valhallaGold)" stroke-width="2" stroke-linejoin="round" />
+  <path d="M165 126 L156 168 L136 156 L142 126" fill="#170607" stroke="url(#valhallaGold)" stroke-width="2" stroke-linejoin="round" />
+  <!-- Crossed Axes / Flame Motif under Helm -->
+  <path d="M92 178 L120 194 L148 178" stroke="url(#valhallaGold)" stroke-width="2" stroke-linecap="round" />
+  <polygon points="120,182 125,188 120,194 115,188" fill="#D9582B" />
+</svg>

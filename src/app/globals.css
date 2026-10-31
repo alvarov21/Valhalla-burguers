@@ -1,0 +1,247 @@
+@import "tailwindcss";
+
+:root {
+  --blood: #5B0E14;
+  --wine: #2B0709;
+  --coal: #0E0B0A;
+  --ivory: #F2E6D2;
+  --gold: #C8A46E;
+  --gold-light: #E8CFA0;
+  --ember: #D9582B;
+  --ash: #9A8B7A;
+
+  --font-playfair: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-cinzel: "Cinzel", "Times New Roman", serif;
+  --font-manrope: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  color-scheme: dark;
+}
+
+@theme {
+  --color-blood: #5B0E14;
+  --color-wine: #2B0709;
+  --color-coal: #0E0B0A;
+  --color-ivory: #F2E6D2;
+  --color-gold: #C8A46E;
+  --color-gold-light: #E8CFA0;
+  --color-ember: #D9582B;
+  --color-ash: #9A8B7A;
+
+  --font-display: var(--font-playfair);
+  --font-eyebrow: var(--font-cinzel);
+  --font-body: var(--font-manrope);
+}
+
+@layer base {
+  html {
+    background-color: var(--coal);
+    color: var(--ivory);
+    font-family: var(--font-manrope);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--wine);
+    color: var(--ivory);
+    font-family: var(--font-manrope);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--blood);
+    color: var(--gold-light);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+}
+
+/* Typography helpers */
+.font-display {
+  font-family: var(--font-playfair) !important;
+}
+
+.font-eyebrow {
+  font-family: var(--font-cinzel) !important;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.font-body {
+  font-family: var(--font-manrope) !important;
+}
+
+.tabular-price {
+  font-family: var(--font-cinzel) !important;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+/* Metallic gold title gradient with single sheen sweep */
+.text-gold-metallic {
+  background-image: linear-gradient(
+    180deg,
+    #F2E6D2 0%,
+    #E8CFA0 28%,
+    #C8A46E 72%,
+    #8F6D39 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+}
+
+.text-gold-metallic-sheen {
+  background-image: linear-gradient(
+    115deg,
+    #C8A46E 0%,
+    #E8CFA0 35%,
+    #F2E6D2 50%,
+    #E8CFA0 65%,
+    #9E7B46 100%
+  );
+  background-size: 220% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: background-position 1.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-gold-metallic-sheen.is-sheened,
+.group:hover .text-gold-metallic-sheen {
+  background-position: 0% 0;
+}
+
+/* Double-frame gold CTA inspired by Valhalla's real graphics */
+.btn-double-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  border: 1px solid var(--gold);
+  background-color: rgba(43, 7, 9, 0.78);
+  color: var(--ivory);
+  padding: 0.9rem 1.85rem;
+  font-family: var(--font-cinzel);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition:
+    color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-double-gold::before {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(200, 164, 110, 0.42);
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-double-gold::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #5B0E14 0%, #3E080D 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.btn-double-gold:hover::after {
+  transform: scaleX(1);
+}
+
+.btn-double-gold:hover {
+  border-color: var(--gold-light);
+  color: var(--gold-light);
+  box-shadow: 0 10px 35px -10px rgba(91, 14, 20, 0.75);
+}
+
+.btn-double-gold > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* Secondary fine-line gold button */
+.btn-outline-gold {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border: 1px solid rgba(200, 164, 110, 0.38);
+  background-color: rgba(14, 11, 10, 0.6);
+  color: var(--ivory);
+  padding: 0.85rem 1.5rem;
+  font-family: var(--font-cinzel);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-outline-gold:hover {
+  border-color: var(--gold);
+  background-color: rgba(91, 14, 20, 0.4);
+  color: var(--gold-light);
+}
+
+/* Fine dotted gold menu leader */
+.menu-leader-dots {
+  flex: 1 1 auto;
+  border-bottom: 1px dotted rgba(200, 164, 110, 0.38);
+  margin: 0 0.75rem;
+  transform: translateY(-0.35rem);
+  min-width: 1.5rem;
+}
+
+/* Subtle 3.5% film grain overlay */
+.valhalla-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Norse rune watermark background pattern */
+.norse-watermark {
+  background-image: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(91, 14, 20, 0.48) 0%,
+    rgba(43, 7, 9, 0.92) 65%,
+    #0E0B0A 100%
+  );
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
